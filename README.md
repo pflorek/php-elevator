@@ -1,5 +1,7 @@
 # PHP Elevator
 
+[![Build Status](https://travis-ci.org/pflorek/php-elevator.svg?branch=master)](https://travis-ci.org/pflorek/php-elevator)
+
 PHP >= 7.0
 
 This library provides a simple way to elevate a map (associative array) 
