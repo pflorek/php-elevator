@@ -91,6 +91,23 @@ Use [Composer] to install the package:
 composer require pflorek/elevator
 ```
 
+## Authors
+
+* [Patrick Florek]
+
+## Contribute
+
+Contributions are always welcome!
+
+* Report any bugs or issues on the [issue tracker].
+* You can download the sources at the package's [Git repository].
+
 ## License
 
 All contents of this package are licensed under the [MIT license].
+
+[Composer]: https://getcomposer.org
+[Git repository]: https://github.com/pflorek/php-elevator
+[issue tracker]: https://github.com/pflorek/php-elevator/issues
+[MIT license]: LICENSE
+[Patrick Florek]: https://github.com/pflorek
