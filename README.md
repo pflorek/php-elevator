@@ -1,6 +1,7 @@
 # PHP Elevator
 
 [![Build Status](https://travis-ci.org/pflorek/php-elevator.svg?branch=master)](https://travis-ci.org/pflorek/php-elevator)
+[![Coverage Status](https://coveralls.io/repos/github/pflorek/php-elevator/badge.svg?branch=master)](https://coveralls.io/github/pflorek/php-elevator?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/pflorek/php-elevator/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/pflorek/php-elevator/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/pflorek/elevator/v/stable)](https://packagist.org/packages/pflorek/elevator)
 [![Total Downloads](https://poser.pugx.org/pflorek/elevator/downloads)](https://packagist.org/packages/pflorek/elevator)
