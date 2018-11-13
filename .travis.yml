@@ -37,11 +37,8 @@ before_install:
 install:
   - composer update $COMPOSER_FLAGS --prefer-dist --no-interaction
 
-before_script:
-- if [[ -n "$COVERALLS_VERSION" ]]; then mkdir -p coverage; fi
-
 script:
-  - if [[ -n "$COVERALLS_VERSION" ]]; then vendor/bin/phpunit --verbose --coverage-clover=coverage/clover.xml; else vendor/bin/phpunit --verbose; fi
+  - if [[ -n "$COVERALLS_VERSION" ]]; then vendor/bin/phpunit --verbose --coverage-clover=clover.xml; else vendor/bin/phpunit --verbose; fi
 
 after_success:
-  - if [[ -n "$COVERALLS_VERSION" ]]; then php vendor/bin/php-coveralls -v -x coverage/clover.xml; fi
+  - if [[ -n "$COVERALLS_VERSION" ]]; then php vendor/bin/php-coveralls -v -x clover.xml; fi
