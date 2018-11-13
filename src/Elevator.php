@@ -13,7 +13,7 @@ class Elevator
      *
      * @return mixed[]
      */
-    public static function up(array &$flattened, $delimiter = '.')
+    public static function up(array $flattened, $delimiter = '.')
     {
         $result = [];
 
@@ -40,7 +40,7 @@ class Elevator
      *
      * @return array
      */
-    public static function down(array &$elevated, $delimiter = '.')
+    public static function down(array $elevated, $delimiter = '.')
     {
         $result = [];
 
