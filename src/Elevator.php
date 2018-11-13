@@ -1,11 +1,7 @@
 <?php
-declare(strict_types = 1);
 
 namespace PFlorek\Elevator;
 
-/**
- * Class Elevator
- */
 class Elevator
 {
     /**
@@ -17,7 +13,7 @@ class Elevator
      *
      * @return mixed[]
      */
-    public static function up(array &$flattened, string $delimiter = '.'): array
+    public static function up(array &$flattened, $delimiter = '.')
     {
         $result = [];
 
@@ -44,7 +40,7 @@ class Elevator
      *
      * @return array
      */
-    public static function down(array &$elevated, string $delimiter = '.'): array
+    public static function down(array &$elevated, $delimiter = '.')
     {
         $result = [];
 
@@ -61,7 +57,7 @@ class Elevator
      * @param string $delimiter
      * @param string $path
      */
-    private static function walk(array &$result, array &$elevated, string $delimiter, string $path = null)
+    private static function walk(array &$result, array &$elevated, $delimiter, $path = null)
     {
         foreach ($elevated as $key => $value) {
             $current = null !== $path ? $path . $delimiter . $key : $key;
