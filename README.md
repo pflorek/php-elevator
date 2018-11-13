@@ -10,8 +10,6 @@
 [![Daily Downloads](https://poser.pugx.org/pflorek/elevator/d/daily)](https://packagist.org/packages/pflorek/elevator)
 [![composer.lock](https://poser.pugx.org/pflorek/elevator/composerlock)](https://packagist.org/packages/pflorek/elevator)
 
-PHP >= 7.0
-
 This library provides a simple way to elevate a map (associative array) 
 to a tree or to fold a tree to a map (associative array). The tree's 
 node keys are the tokens of the map's materialized path separated by
