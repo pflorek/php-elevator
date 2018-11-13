@@ -1,6 +1,14 @@
 # PHP Elevator
 
 [![Build Status](https://travis-ci.org/pflorek/php-elevator.svg?branch=master)](https://travis-ci.org/pflorek/php-elevator)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/pflorek/php-elevator/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/pflorek/php-elevator/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/pflorek/elevator/v/stable)](https://packagist.org/packages/pflorek/elevator)
+[![Total Downloads](https://poser.pugx.org/pflorek/elevator/downloads)](https://packagist.org/packages/pflorek/elevator)
+[![Latest Unstable Version](https://poser.pugx.org/pflorek/elevator/v/unstable)](https://packagist.org/packages/pflorek/elevator)
+[![License](https://poser.pugx.org/pflorek/elevator/license)](https://packagist.org/packages/pflorek/elevator)
+[![Monthly Downloads](https://poser.pugx.org/pflorek/elevator/d/monthly)](https://packagist.org/packages/pflorek/elevator)
+[![Daily Downloads](https://poser.pugx.org/pflorek/elevator/d/daily)](https://packagist.org/packages/pflorek/elevator)
+[![composer.lock](https://poser.pugx.org/pflorek/elevator/composerlock)](https://packagist.org/packages/pflorek/elevator)
 
 PHP >= 7.0
 
