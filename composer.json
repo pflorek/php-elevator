@@ -30,9 +30,11 @@
     },
     "autoload": {
         "psr-4": {
-            "PFlorek\\Elevator\\": "src/",
-            "files": [ "functions.php" ]
-        }
+            "PFlorek\\Elevator\\": "src/"
+        },
+        "files": [
+            "functions.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
