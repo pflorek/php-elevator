@@ -5,16 +5,20 @@ namespace PFlorek\Elevator;
 class Elevator
 {
     /**
-     * Elevates a map to a tree. The hash map keys are splitted by the delimiter into tokens. The token will become
-     * the key of each node in the resulting tree.
+     * Elevates an one-dimensional or any \Traversable to a multi-dimensional array.
+     * Splits the keys by the delimiter into tokens. The tokens will become
+     * the key of each node of the multi-dimensional array.
      *
-     * @param mixed[] $flattened The map to be elevated to a tree.
-     * @param string  $delimiter The delimiter to split the map's keys.
-     *
-     * @return mixed[]
+     * @param array|\Traversable $flattened The map to be elevated to a tree.
+     * @param string $delimiter The delimiter to split the map's keys.
+     * @return array
      */
-    public static function up(array $flattened, $delimiter = '.')
+    public static function up($flattened, $delimiter = '.')
     {
+        if (!is_iterable($flattened)) {
+            throw new \RuntimeException('Argument must be of type iterable (array or \Traversable).');
+        }
+
         $result = [];
 
         foreach ($flattened as $path => $value) {
@@ -33,15 +37,18 @@ class Elevator
     }
 
     /**
-     * Folds a tree down to a map. The node's keys are joined with the delimiter to a materialized path.
+     * Flattens a multi-dimensional array or any \\Traversable into an one-dimensional array.
      *
-     * @param array  $elevated  The tree to be fold down to a map.
+     * @param array|\Traversable $elevated The tree to be fold down to a map.
      * @param string $delimiter The delimiter used to materialize the path.
-     *
      * @return array
      */
-    public static function down(array $elevated, $delimiter = '.')
+    public static function down($elevated, $delimiter = '.')
     {
+        if (!is_iterable($elevated)) {
+            throw new \RuntimeException('Argument must be of type iterable (array or \Traversable).');
+        }
+
         $result = [];
 
         static::walk($result, $elevated, $delimiter);
@@ -52,12 +59,12 @@ class Elevator
     /**
      * Internal pre-order tree walker appends each leaf with its materialized path to the resulting map.
      *
-     * @param array  $result
-     * @param array  $elevated
+     * @param array $result
+     * @param array $elevated
      * @param string $delimiter
      * @param string $path
      */
-    private static function walk(array &$result, array &$elevated, $delimiter, $path = null)
+    private static function walk(&$result, &$elevated, $delimiter, $path = null)
     {
         foreach ($elevated as $key => $value) {
             $current = null !== $path ? $path . $delimiter . $key : $key;

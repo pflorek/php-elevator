@@ -2,7 +2,6 @@
 
 namespace PFlorek\Elevator\Tests;
 
-use PFlorek\Elevator\Elevator;
 use PHPUnit\Framework\TestCase;
 
 class ElevatorTest extends TestCase
@@ -10,51 +9,71 @@ class ElevatorTest extends TestCase
     /**
      * @test
      * @dataProvider worldElevatedProvider
-     *
      * @param array $elevated
      */
-    public function foldAndElevate(array $elevated) {
-        $flattened = Elevator::down($elevated);
+    public function foldAndElevate(array $elevated)
+    {
+        $flattened = \PFlorek\Elevator\array_flatten($elevated);
         var_dump($flattened);
-        $this->assertEquals(Elevator::up($flattened), $elevated);
+        $this->assertEquals(\PFlorek\Elevator\array_elevate($flattened), $elevated);
+    }
+
+    /**
+     * @test
+     * @expectedException \RuntimeException
+     */
+    public function fold_WithoutIterable_ShouldThrowRuntimeException()
+    {
+        \PFlorek\Elevator\array_flatten('any_scalar');
     }
 
     /**
      * @test
      * @dataProvider worldFlattenedProvider
-     *
      * @param array $flattened
      */
-    public function elevateAndFold(array $flattened) {
-        $elevated = Elevator::up($flattened);
+    public function elevateAndFold(array $flattened)
+    {
+        $elevated = \PFlorek\Elevator\array_elevate($flattened);
         var_dump($elevated);
-        $this->assertEquals(Elevator::down($elevated), $flattened);
+        $this->assertEquals(\PFlorek\Elevator\array_flatten($elevated), $flattened);
     }
 
-    public function worldElevatedProvider() {
+    /**
+     * @test
+     * @expectedException \RuntimeException
+     */
+    public function elevate_WithoutIterable_ShouldThrowRuntimeException()
+    {
+        \PFlorek\Elevator\array_elevate(0);
+    }
+
+    public function worldElevatedProvider()
+    {
         return [
             'World Test Data Elevated' => [
                 [
                     'World' => [
                         'Asia' => [
                             'Afghanistan' => [
-                                '...'
+                                '...',
                             ],
-                            '...'
+                            '...',
                         ],
                         'Africa' => true,
                         'Antarctica' => -25.2,
                         'Europe' => new \stdClass(),
                         'North America' => 1,
                         'Oceania' => [],
-                        'South America' => null
-                    ]
-                ]
-            ]
+                        'South America' => null,
+                    ],
+                ],
+            ],
         ];
     }
 
-    public function worldFlattenedProvider() {
+    public function worldFlattenedProvider()
+    {
         return [
             'World Test Data Flattened' => [
                 [
@@ -66,8 +85,8 @@ class ElevatorTest extends TestCase
                     'World.North America' => 1,
                     'World.Oceania' => [],
                     'World.South America' => null,
-                ]
-            ]
+                ],
+            ],
         ];
     }
 }
