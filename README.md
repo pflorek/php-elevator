@@ -12,7 +12,7 @@
 [![composer.lock](https://poser.pugx.org/pflorek/elevator/composerlock)](https://packagist.org/packages/pflorek/elevator)
 
 This library provides a simple way to elevate a map (associative array) 
-to a tree or to fold a tree to a map (associative array). The tree's 
+to a tree or to flatten a tree to a map (associative array). The tree's 
 node keys are the tokens of the map's materialized path separated by
 a delimiter.
 
@@ -31,6 +31,8 @@ Elevate a map with materialized paths to a tree:
 
 ```PHP
 use PFlorek\Elevator\Elevator;
+use PFlorek\Elevator\ElevatorFactory;
+use function \PFlorek\Elevator\array_elevate;
 
 $flattened = [
     'World.Asia.Afghanistan.0' => '...',
@@ -40,7 +42,13 @@ $flattened = [
     'World.North America' => [],
 ];
 
-$elevated = Elevator::up($flattened);
+// object oriented
+$factory = ElevatorFactory::getInstance();
+$elevator = $factory->create();
+$elevator->up($flattened);
+
+// or functional
+$elevated = array_elevate($flattened);
 
 var_dump($elevated);
 
@@ -57,13 +65,15 @@ var_dump($elevated);
 //}
 ```
 
-### Fold
+### Flatten
 
-Folding a tree to a map which keys are the materialized path of the node's keys:
+Flattens a tree to a map which keys are the materialized path of the node's keys:
 
 
 ```PHP
 use PFlorek\Elevator\Elevator;
+use PFlorek\Elevator\ElevatorFactory;
+use function \PFlorek\Elevator\array_flatten;
 
 $elevated = [
     'World' => [
@@ -79,7 +89,13 @@ $elevated = [
     ]
 ];
 
-$flattened = Elevator::down($elevated);
+// object oriented
+$factory = ElevatorFactory::getInstance();
+$elevator = $factory->create();
+$elevator->down($flattened);
+
+// or functional
+$flattened = array_flatten($elevated);
 
 var_dump($flattened);
 
