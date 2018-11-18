@@ -13,7 +13,7 @@ class Elevator
      * @param string $delimiter The delimiter to split the map's keys.
      * @return array
      */
-    public static function up($flattened, $delimiter = '.')
+    public function up($flattened, $delimiter = '.')
     {
         if (!is_iterable($flattened)) {
             throw new \RuntimeException('Argument must be of type iterable (array or \Traversable).');
@@ -43,7 +43,7 @@ class Elevator
      * @param string $delimiter The delimiter used to materialize the path.
      * @return array
      */
-    public static function down($elevated, $delimiter = '.')
+    public function down($elevated, $delimiter = '.')
     {
         if (!is_iterable($elevated)) {
             throw new \RuntimeException('Argument must be of type iterable (array or \Traversable).');
@@ -51,7 +51,7 @@ class Elevator
 
         $result = [];
 
-        static::walk($result, $elevated, $delimiter);
+        $this->walk($result, $elevated, $delimiter);
 
         return $result;
     }
@@ -64,7 +64,7 @@ class Elevator
      * @param string $delimiter
      * @param string $path
      */
-    private static function walk(&$result, &$elevated, $delimiter, $path = null)
+    private function walk(&$result, &$elevated, $delimiter, $path = null)
     {
         foreach ($elevated as $key => $value) {
             $current = null !== $path ? $path . $delimiter . $key : $key;
@@ -72,7 +72,7 @@ class Elevator
             if (!is_array($value) || !count($value)) {
                 $result[$current] = $value;
             } else {
-                static::walk($result, $value, $delimiter, $current);
+                $this->walk($result, $value, $delimiter, $current);
             }
         }
     }

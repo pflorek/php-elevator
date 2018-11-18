@@ -11,7 +11,10 @@ namespace PFlorek\Elevator;
  */
 function array_elevate($flattened, $delimiter = '.')
 {
-    return Elevator::up($flattened, $delimiter);
+    $factory = ElevatorFactory::getInstance();
+    $elevator = $factory->create();
+
+    return $elevator->up($flattened, $delimiter);
 }
 
 /**
@@ -23,5 +26,8 @@ function array_elevate($flattened, $delimiter = '.')
  */
 function array_flatten($elevated, $delimiter = '.')
 {
-    return Elevator::down($elevated, $delimiter);
+    $factory = ElevatorFactory::getInstance();
+    $elevator = $factory->create();
+
+    return $elevator->down($elevated, $delimiter);
 }

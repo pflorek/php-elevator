@@ -57,15 +57,9 @@ class ElevatorTest extends TestCase
                         'Asia' => [
                             'Afghanistan' => [
                                 '...',
-                            ],
-                            '...',
-                        ],
-                        'Africa' => true,
-                        'Antarctica' => -25.2,
-                        'Europe' => new \stdClass(),
-                        'North America' => 1,
-                        'Oceania' => [],
-                        'South America' => null,
+                            ], '...',
+                        ], 'Africa' => true, 'Antarctica' => -25.2, 'Europe' => new \stdClass(), 'North America' => 1,
+                        'Oceania' => [], 'South America' => null,
                     ],
                 ],
             ],
@@ -77,14 +71,9 @@ class ElevatorTest extends TestCase
         return [
             'World Test Data Flattened' => [
                 [
-                    'World.Asia.Afghanistan.0' => '...',
-                    'World.Asia.0' => '...',
-                    'World.Africa' => true,
-                    'World.Antarctica' => -25.2,
-                    'World.Europe' => new \stdClass(),
-                    'World.North America' => 1,
-                    'World.Oceania' => [],
-                    'World.South America' => null,
+                    'World.Asia.Afghanistan.0' => '...', 'World.Asia.0' => '...', 'World.Africa' => true,
+                    'World.Antarctica' => -25.2, 'World.Europe' => new \stdClass(), 'World.North America' => 1,
+                    'World.Oceania' => [], 'World.South America' => null,
                 ],
             ],
         ];
